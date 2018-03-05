@@ -1,0 +1,23 @@
+{
+  "name": "portal_noticias",
+  "version": "1.0.0",
+  "description": "Site de noticias do curso Udemy",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gabriel-Pellegrini/Alura.git"
+  },
+  "author": "Gabriel Pellegrini",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gabriel-Pellegrini/Alura/issues"
+  },
+  "homepage": "https://github.com/Gabriel-Pellegrini/Alura#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
