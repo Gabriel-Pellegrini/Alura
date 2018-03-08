@@ -1,13 +1,14 @@
 docker run --name filebeats --network redeLocal -it -h filebeat -p 4000:4000 -P docker.elastic.co/beats/filebeat:6.2.2
 
 --Elastic
-docker run -it --name elastic --network redeLocal -h elastic -p 9201:9200 -p 9301:9300 -e "discovery.type=single-node" -e "cluster.name=pocfilebeat" -e "node.name=elastic" docker.elastic.co/elasticsearch/elasticsearch:6.2.2
+docker run -it --name elasticsearch --network redeLocal -h elastic -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" -e "cluster.name=elasticsearch" -e "node.name=pocfilebeat" docker.elastic.co/elasticsearch/elasticsearch:6.2.2
 
 --Kibana
-docker run -it --name kibana --network redeLocal -h kibana -p 9200:9200 -p 9300:9300 docker.elastic.co/kibana/kibana:6.2.2
+docker run -it --name kibana --network redeLocal -e SERVER_NAME=kibana -e ELASTICSEARCH_URL=http://elasticsearch:9200 -h kibana -p 5601:5601 docker.elastic.co/kibana/kibana:6.2.2
 
 -- Logstash
-docker run -it --name logstash --network redeLocal -h logstash -p 9200:9200 -p 9300:9300 docker.elastic.co/logstash/logstash:6.2.2
+docker run -it --name logstash --network redeLocal -h logstash -v "./logstash:/etc/logstash/conf.d" -v "./logstash/patterns:/opt/logstash/patterns" docker.elastic.co/logstash/logstash:6.2.2 logstash -f /etc/logstash/conf.d/logstash_filebeat.conf
+
 
 -- Beats
 docker run -it --name beats --network redeLocal -h beats -p 9200:9200 -p 9300:9300 docker.elastic.co/beats/beats:6.2.2

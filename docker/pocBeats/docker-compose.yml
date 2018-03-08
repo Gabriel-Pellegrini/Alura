@@ -1,16 +1,19 @@
 version: '3'
 services:
+
   elasticsearch:
       image: docker.elastic.co/elasticsearch/elasticsearch:6.2.2
       container_name: elasticsearch
       environment:
+        - cluster.name=elastic
         - node.name=pocfilebeat
-        - cluster.name=elasticsearch
+        - discovery.type=single-node
       ports:
         - "9200:9200"
         - "9300:9300"
       networks:
         - redeLocal
+  
   kibana:
       image: docker.elastic.co/kibana/kibana:6.2.2
       container_name: kibana
@@ -23,6 +26,7 @@ services:
         - redeLocal
       depends_on:
         - elasticsearch
+  
   logstash:
       image: docker.elastic.co/logstash/logstash:6.2.2
       container_name: logstash
@@ -36,15 +40,16 @@ services:
         - elasticsearch
   beats:
     image: docker.elastic.co/beats/filebeat:6.2.2
-    container_name: beats
+    container_name: filebeat
     volumes:
       - ./filebeat/filebeat.yml:/filebeat.yml
-      - ../fake-logs:/var/log
+      - ./filebeat/fake-logs:/var/log
     networks:
         - redeLocal
     depends_on:
-      - logstash
+      - elasticsearch
       - kibana
+ 
 
 networks:
   redeLocal:

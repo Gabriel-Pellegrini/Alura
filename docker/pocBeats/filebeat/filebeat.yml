@@ -1,9 +1,10 @@
 
 filebeat:
   prospectors:
-    - 
-      paths:
-        input-type: log
+    -
+        paths:
+          - /log/log1.txt
+        type: txt
         document_type: filebeat_log
         scan_frequency: 10s
 
