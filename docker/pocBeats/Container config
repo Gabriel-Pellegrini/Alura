@@ -1,0 +1,13 @@
+docker run --name filebeats --network redeLocal -it -h filebeat -p 4000:4000 -P docker.elastic.co/beats/filebeat:6.2.2
+
+--Elastic
+docker run -it --name elastic --network redeLocal -h elastic -p 9201:9200 -p 9301:9300 -e "discovery.type=single-node" -e "cluster.name=pocfilebeat" -e "node.name=elastic" docker.elastic.co/elasticsearch/elasticsearch:6.2.2
+
+--Kibana
+docker run -it --name kibana --network redeLocal -h kibana -p 9200:9200 -p 9300:9300 docker.elastic.co/kibana/kibana:6.2.2
+
+-- Logstash
+docker run -it --name logstash --network redeLocal -h logstash -p 9200:9200 -p 9300:9300 docker.elastic.co/logstash/logstash:6.2.2
+
+-- Beats
+docker run -it --name beats --network redeLocal -h beats -p 9200:9200 -p 9300:9300 docker.elastic.co/beats/beats:6.2.2
