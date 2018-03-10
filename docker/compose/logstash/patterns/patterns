@@ -1,5 +1,0 @@
-#GROK CUSTOM PATTERNS
-
-BEATLOG %{TIME:time}\]\s\[%{THREAD:trilha}
-TIME (?:\d+\:)+\d+(?=])
-THREAD (\w{6}\-\d+)
