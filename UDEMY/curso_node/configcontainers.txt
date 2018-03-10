@@ -2,7 +2,7 @@
 #Container node rodando um código de minha máquina em um container
 
 
-docker run --name node -v "C:\Users\gabri\Documents\Projetos\Cursos_Online\Alura\UDEMY\curso_node:/var/dockerapp" -p 3050:3000 -w "/var/dockerapp" --network localNetwork node node server.js
+docker run --name node -v "$PWD\esdata\:/var/dockerapp" -p 3050:3000 -w "/var/dockerapp" --network localNetwork node node server.js
 
 
 docker run --name node -v "<local_directory>:/var/dockerapp" -p 3001:3000 -w "/var/dockerapp" --network localNetwork <repository>:<tag> <command>

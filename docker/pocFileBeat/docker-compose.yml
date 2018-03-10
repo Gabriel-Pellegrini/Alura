@@ -14,7 +14,7 @@ services:
       networks:
         - redeLocal
   logstash:
-      image: docker.elastic.co/logstash/logstash:6.2.2
+      image: gabrielpellegrini/linux:logstash
       container_name: logstash
       command: logstash -f /etc/logstash/conf.d/logstash.conf
       volumes:
@@ -41,6 +41,7 @@ services:
     container_name: filebeat
     volumes:
       - ./filebeat/fake-logs:/var/logs
+      - ./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml
     networks:
         - redeLocal
     depends_on:
