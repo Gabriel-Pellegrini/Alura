@@ -1,14 +1,14 @@
 
 filebeat.prospectors:
     - paths:
-          - /var/logs/log1.log
+          - /var/logs/*.log
       type: log
       document_type: pdv_log
       scan_frequency: 10s
 
 output:
   logstash:
-    hosts: ["logstash:5044"]
+    hosts: ["logstash1:5044"]
 logging:
   files:
     rotateeverybytes: 10485760 # = 10MB
