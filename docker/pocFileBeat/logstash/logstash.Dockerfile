@@ -6,11 +6,9 @@ MAINTAINER Gabriel Pellegrini
 
 RUN rm -f /usr/share/logstash/logstash.conf
 
-COPY . /usr/share/logstash
+COPY . etc/logstash/conf.d
 
 WORKDIR  /usr/share/logstash
-
-ENTRYPOINT ["logstash","-f","logstash.conf"]
 
 EXPOSE 5044
 
