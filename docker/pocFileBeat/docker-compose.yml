@@ -14,15 +14,15 @@ services:
       networks:
         - redeLocal
   logstash:
-      build: 
-        dockerfile: ./logstash/logstash.Dockerfile
-        context: .
-      image: gabrielpellegrini/logstash:compose
+      image: docker.elastic.co/logstash/logstash:6.2.2
       container_name: logstash1
-      
+      command: logstash -f /etc/logstash/conf.d/logstash.conf
       volumes:
-        - ./logstash:/usr/share/logstash/
-        - ./logstash/patterns:/usr/share/logstash/patterns
+      - ./logstash:/etc/logstash/conf.d
+      - ./logstash/patterns:/opt/logstash/patterns
+      #volumes:
+      #  - ./logstash:/usr/share/logstash/
+      #  - ./logstash/patterns:/usr/share/logstash/patterns
       networks:
         - redeLocal
       depends_on:
@@ -39,20 +39,20 @@ services:
         - redeLocal
       depends_on:
         - elasticsearch
-  beats:
-    build:
-      dockerfile: ./filebeat/filebeats.Dockerfile
-      context: .
-    image: gabrielpellegrini/filebeat:compose
-    container_name: filebeat1
-    volumes:
-     - ./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml
-     - ./filebeat/logs:/var/logs
-    networks:
-        - redeLocal
-    depends_on:
-      - elasticsearch
-      - kibana
+  #beats:
+   # build:
+    #  dockerfile: ./filebeat/filebeats.Dockerfile
+     # context: .
+   # image: gabrielpellegrini/filebeat:compose
+   # container_name: filebeat1
+   # volumes:
+   #  - ./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml
+   #  - ./filebeat/logs:/var/logs
+   # networks:
+   #     - redeLocal
+    #depends_on:
+    #  - elasticsearch
+    #  - kibana
 networks:
   redeLocal:
     driver: bridge
