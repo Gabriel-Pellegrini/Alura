@@ -3,7 +3,8 @@ filebeat.prospectors:
     - paths:
           - /var/logs/*.log
       type: log
-      document_type: pdv_log
+      enabled: true
+      document_type: pdv_0058_0001
       scan_frequency: 10s
 
 output:
