@@ -59,7 +59,7 @@ services:
     entrypoint: ["/bin/bash"]
     ports:
       - "2222:22"
-      - "5044"
+      - "5044:5044"
     volumes: 
       - .:/var/dockerapp
     networks:
