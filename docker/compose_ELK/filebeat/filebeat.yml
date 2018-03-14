@@ -4,7 +4,6 @@ filebeat.prospectors:
           - /var/logs/*.log
       type: log
       enabled: true
-      document_type: pdv_0058_0001
       scan_frequency: 10s
 
 output:
