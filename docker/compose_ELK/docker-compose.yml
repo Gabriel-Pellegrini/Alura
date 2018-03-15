@@ -72,4 +72,4 @@ services:
 networks:
   default:
     external:
-      name: redeLocal
+      name: localNetwork

@@ -2,17 +2,6 @@
 
 //---------------------EXEMPLOS DE INSERÇÕES NO INDEX DO ELASTIC------------------------
 
-POST /catalogo/pessoas/1
-{
-    "nome": "João Silva",
-    "interesses": ["futebol", "música", "literatura"],
-    "cidade": "São Paulo",
-    "formação": "Letras",
-    "estado": "SP",
-    "país": "Brasil"
-}
-
-
 POST catalogo/pessoas/1
 {
   "nome": "Gabriel Pellegrini",
