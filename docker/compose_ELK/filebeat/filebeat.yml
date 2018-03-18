@@ -1,7 +1,8 @@
 
+name: beatContainer
 filebeat.prospectors:
     - paths:
-          - /var/logs/*.log
+          - /var/logs/*
       type: log
       enabled: true
       scan_frequency: 10s
