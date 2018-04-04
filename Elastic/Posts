@@ -2,6 +2,7 @@
 
 //---------------------EXEMPLOS DE INSERÇÕES NO INDEX DO ELASTIC------------------------
 
+
 POST catalogo/pessoas/1
 {
   "nome": "Gabriel Pellegrini",
@@ -10,6 +11,7 @@ POST catalogo/pessoas/1
   "formação":"Ciência da Computação",
   "estado":"SP",
   "país":"Brasil",
+  "nascimento":"1996-11-30"
 }
 
 POST catalogo/pessoas/2
@@ -19,7 +21,8 @@ POST catalogo/pessoas/2
   "cidade":"São Paulo",
   "formação":"Fundamental 2",
   "estado":"SP",
-  "país":"Brasil"
+  "país":"Brasil",
+  "nascimento":"2005-02-14"
 }
 
 POST /catalogo/pessoas/3
@@ -29,7 +32,8 @@ POST /catalogo/pessoas/3
     "cidade": "Boston",
     "formação": "Física",
     "estado": "MA",
-    "país": "Estados Unidos"
+    "país": "Estados Unidos",
+    "nascimento":"1980-04-20"
 }
 
 POST /catalogo/pessoas/4
@@ -39,7 +43,8 @@ POST /catalogo/pessoas/4
     "cidade": "Rio de Janeiro",
     "formação": "Gastronomia",
     "estado": "RJ",
-    "país": "Brasil"
+    "país": "Brasil",
+    "nascimento":"1990-08-16"
 }
 
 POST /catalogo/pessoas/5
@@ -49,7 +54,8 @@ POST /catalogo/pessoas/5
     "cidade": "São Paulo",
     "formação": "Engenharia de Automação",
     "estado": "SP",
-    "país": "Brasil"
+    "país": "Brasil",
+    "nascimento":"1996-11-15"
 }
 
 POST /catalogo/pessoas/6
@@ -59,10 +65,34 @@ POST /catalogo/pessoas/6
     "cidade": "São Paulo",
     "formação": "Direito",
     "estado": "SP",
-    "país": "Brasil"
+    "país": "Brasil",
+    "nascimento":"1996-04-01"
+}
+
+POST /catalogo/pessoas/7
+{
+    "nome": "Beatriz Lopes",
+    "interesses": ["religião", "turismo", "hotelaria"],
+    "cidade": "São Paulo",
+    "formação": "Turismo",
+    "estado": "SP",
+    "país": "Brasil",
+    "nascimento":"1996-05-27"
+}
+
+PUT /catalogo/pessoas/8
+{
+    "nome": "Mylena Lopes",
+    "interesses": ["eventos", "religião", "animais"],
+    "cidade": "São Paulo",
+    "formação": "Medicina Veterinária",
+    "estado": "SP",
+    "país": "Brasil",
+    "nascimento":"1996-08-01"
 }
 
 
+--------------------------------------------------// INDICANDO NÚMEROS DE REPLICAS DO INDEX // --------------------
 PUT /catalogo/_settings
 {
     "index": {

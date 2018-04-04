@@ -1,0 +1,18 @@
+----------------------------------//Busca Geral//--------------------
+
+GET catalogo/pessoas/_search
+
+-----------------------------// Busca id específico// -----------
+
+GET catalogo/pessoas/1
+
+--------------------------//Busca por determinado termo//----------------
+
+GET catalogo/pessoas/_search?q=esportes (Termo específico)
+
+GET catalogo/pessoas/_search?q=estado:São Paulo (dentro de um Atributo específico)
+
+---------------------------// Limitando tamanho/origem da Busca //-----------
+
+
+GET catalogo/pessoas/_search?q=nome:Gabriel&size=2&from=0
