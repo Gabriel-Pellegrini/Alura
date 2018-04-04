@@ -40,6 +40,7 @@ services:
   beats:
     image: docker.elastic.co/beats/filebeat:6.2.2
     container_name: filebeat
+    hostname: filebeat
     #entrypoint: "filebeat -e -strict.perms=false"
     command: "filebeat -e -strict.perms=false"
     volumes:
@@ -59,7 +60,7 @@ services:
     entrypoint: ["/bin/bash"]
     ports:
       - "2222:22"
-      - "5044"
+      - "5044:5044"
     volumes: 
       - .:/var/dockerapp
     networks:
@@ -71,4 +72,4 @@ services:
 networks:
   default:
     external:
-      name: redeLocal
+      name: localNetwork

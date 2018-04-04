@@ -1,0 +1,61 @@
+------------------------------------// ATUALIZANDO MAPPING// ----------------------------
+
+PUT catalogo/pessoas/1
+{
+  "nome": "Gabriel Pellegrini",
+  "interesses":["tecnologia","esportes","games"],
+  "cidade":"São Paulo",
+  "formação":"Ciência da Computação",
+  "estado":"SP",
+  "país":"Brasil",
+  "nascimento":"1996-11-30"
+}
+
+---------------------------// TEMPLATE CATALOGO// --------------------------
+
+PUT _template/catalogo
+{
+  	"template":"catalogo",
+  	"settings": {
+    "index": {
+      "number_of_shards": 3,
+      "number_of_replicas": 0
+    }
+  },
+  "mappings": {
+    "pessoas": {
+      "_all": {
+        "type": "text",
+        "analyzer": "brazilian"
+      },
+      "properties": {
+        "cidade": {
+          "type": "text",
+          "analyzer": "brazilian"
+        },
+        "estado": {
+          "type": "text"
+        },
+        "formação": {
+          "type": "text",
+          "analyzer": "brazilian"
+        },
+        "interesses": {
+          "type": "text",
+          "analyzer": "brazilian"
+        },
+        "nome": {
+          "type": "text",
+          "analyzer": "brazilian"
+        },
+        "país": {
+          "type": "text",
+          "analyzer": "brazilian"
+        },
+        "nascimento":{
+        	"type":"date"
+        }
+      }
+    }
+  }
+}

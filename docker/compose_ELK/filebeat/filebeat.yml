@@ -1,9 +1,10 @@
 
+name: beatContainer
 filebeat.prospectors:
     - paths:
-          - /var/logs/*.log
+          - /var/logs/*
       type: log
-      document_type: pdv_log
+      enabled: true
       scan_frequency: 10s
 
 output:
@@ -13,4 +14,4 @@ logging:
   files:
     rotateeverybytes: 10485760 # = 10MB
   selectors: ["*"]
-  level: warning
+  #level: warning

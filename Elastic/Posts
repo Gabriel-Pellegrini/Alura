@@ -1,0 +1,101 @@
+
+
+//---------------------EXEMPLOS DE INSERÇÕES NO INDEX DO ELASTIC------------------------
+
+
+POST catalogo/pessoas/1
+{
+  "nome": "Gabriel Pellegrini",
+  "interesses":["tecnologia","esportes","games"],
+  "cidade":"São Paulo",
+  "formação":"Ciência da Computação",
+  "estado":"SP",
+  "país":"Brasil",
+  "nascimento":"1996-11-30"
+}
+
+POST catalogo/pessoas/2
+{
+  "nome": "Eric Pellegrini",
+  "interesses":["youtube","esportes","games"],
+  "cidade":"São Paulo",
+  "formação":"Fundamental 2",
+  "estado":"SP",
+  "país":"Brasil",
+  "nascimento":"2005-02-14"
+}
+
+POST /catalogo/pessoas/3
+{
+    "nome": "Richard Edward",
+    "interesses": ["matemática", "física", "música"],
+    "cidade": "Boston",
+    "formação": "Física",
+    "estado": "MA",
+    "país": "Estados Unidos",
+    "nascimento":"1980-04-20"
+}
+
+POST /catalogo/pessoas/4
+{
+    "nome": "Patrick von Steppat",
+    "interesses": ["computação", "culinária", "cinema"],
+    "cidade": "Rio de Janeiro",
+    "formação": "Gastronomia",
+    "estado": "RJ",
+    "país": "Brasil",
+    "nascimento":"1990-08-16"
+}
+
+POST /catalogo/pessoas/5
+{
+    "nome": "Gustavo Fernandes",
+    "interesses": ["matemática", "física", "música"],
+    "cidade": "São Paulo",
+    "formação": "Engenharia de Automação",
+    "estado": "SP",
+    "país": "Brasil",
+    "nascimento":"1996-11-15"
+}
+
+POST /catalogo/pessoas/6
+{
+    "nome": "Marcelo Nascimento",
+    "interesses": ["tecnologia", "direito", "games"],
+    "cidade": "São Paulo",
+    "formação": "Direito",
+    "estado": "SP",
+    "país": "Brasil",
+    "nascimento":"1996-04-01"
+}
+
+POST /catalogo/pessoas/7
+{
+    "nome": "Beatriz Lopes",
+    "interesses": ["religião", "turismo", "hotelaria"],
+    "cidade": "São Paulo",
+    "formação": "Turismo",
+    "estado": "SP",
+    "país": "Brasil",
+    "nascimento":"1996-05-27"
+}
+
+PUT /catalogo/pessoas/8
+{
+    "nome": "Mylena Lopes",
+    "interesses": ["eventos", "religião", "animais"],
+    "cidade": "São Paulo",
+    "formação": "Medicina Veterinária",
+    "estado": "SP",
+    "país": "Brasil",
+    "nascimento":"1996-08-01"
+}
+
+
+--------------------------------------------------// INDICANDO NÚMEROS DE REPLICAS DO INDEX // --------------------
+PUT /catalogo/_settings
+{
+    "index": {
+        "number_of_replicas": 0
+    }
+}
