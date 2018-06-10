@@ -1,6 +1,6 @@
-------------------------------------// ATUALIZANDO MAPPING// ----------------------------
+//------------------------------------// ATUALIZANDO MAPPING// ----------------------------
 
-PUT catalogo/pessoas/1
+//PUT catalogo/pessoas/1
 {
   "nome": "Gabriel Pellegrini",
   "interesses":["tecnologia","esportes","games"],
@@ -11,12 +11,12 @@ PUT catalogo/pessoas/1
   "nascimento":"1996-11-30"
 }
 
----------------------------// TEMPLATE CATALOGO// --------------------------
+//---------------------------// TEMPLATE CATALOGO// --------------------------
 
-PUT _template/catalogo
+//PUT _template/catalogo
 {
-  	"template":"catalogo",
-  	"settings": {
+  "template":"catalogo",
+  "settings": {
     "index": {
       "number_of_shards": 3,
       "number_of_replicas": 0
@@ -53,7 +53,7 @@ PUT _template/catalogo
           "analyzer": "brazilian"
         },
         "nascimento":{
-        	"type":"date"
+          "type":"date"
         }
       }
     }

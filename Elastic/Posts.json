@@ -5,24 +5,24 @@
 
 POST catalogo/pessoas/1
 {
-  "nome": "Gabriel Pellegrini",
-  "interesses":["tecnologia","esportes","games"],
-  "cidade":"São Paulo",
-  "formação":"Ciência da Computação",
-  "estado":"SP",
-  "país":"Brasil",
-  "nascimento":"1996-11-30"
+    "nome": "Gabriel Pellegrini",
+    "interesses":["tecnologia","esportes","games"],
+    "cidade":"São Paulo",
+    "formação":"Ciência da Computação",
+    "estado":"SP",
+    "país":"Brasil",
+    "nascimento":"1996-11-30"
 }
 
 POST catalogo/pessoas/2
 {
-  "nome": "Eric Pellegrini",
-  "interesses":["youtube","esportes","games"],
-  "cidade":"São Paulo",
-  "formação":"Fundamental 2",
-  "estado":"SP",
-  "país":"Brasil",
-  "nascimento":"2005-02-14"
+    "nome": "Eric Pellegrini",
+    "interesses":["youtube","esportes","games"],
+    "cidade":"São Paulo",
+    "formação":"Fundamental 2",
+    "estado":"SP",
+    "país":"Brasil",
+    "nascimento":"2005-02-14"
 }
 
 POST /catalogo/pessoas/3
