@@ -13,7 +13,7 @@
 
 //---------------------------// TEMPLATE CATALOGO// --------------------------
 
-//PUT _template/catalogo
+PUT _template/catalogo
 {
   "template":"catalogo",
   "settings": {
@@ -59,3 +59,37 @@
     }
   }
 }
+
+//---------------------------// TEMPLATE SINONIMO// --------------------------
+PUT _template/catalogo_sinonimo
+{
+  "template":"catalogo_sinonimo",
+  "settings":{
+    "index":{
+      "number_of_shards":3,
+      "number_of_replicas":0
+    },
+    "analysis": {
+      "filter": {
+        "filtro_de_sinonimos": {
+          "type": "synonym",
+          "synonyms": [
+            "esporte,futebol,society,futeba,pelada"
+          ]
+        }
+      },
+      "analyzer":{
+        "sinonimos":{
+          "tokenizer":"standard",
+          "type":"custom",
+          "filter":[
+            "lowercase",
+            "filtro_de_sinonimos"
+          ]
+        }
+      }
+    }
+  }
+}
+  
+  
