@@ -1,0 +1,42 @@
+
+
+<meta charset="UTF-8">
+
+<script>
+function pulaLinha(){
+	document.write("<br>");
+}
+function show (imprime){
+	document.write(imprime);
+};
+
+var nome = prompt("Insira seu nome.");
+var vit = parseInt(prompt("Quantas vitórias seu time teve?"));
+var emp = parseInt(prompt("Quantos vezes empatou"));
+var pontos = (vit * 3) + emp;
+var pontosTempA = parseInt(prompt("Pontos da temporada passada ?"));
+
+show(nome + " os pontos do seu time é " + pontos );
+pulaLinha();
+pulaLinha();
+
+if (pontos > pontosTempA){
+show("Seu time está melhor que o ano passado");
+pulaLinha();
+}
+if (pontos == pontosTempA) {
+show("Seu time está igual ao ano passado");
+pulaLinha();
+}
+if (pontos < pontosTempA) {
+show("Seu time está pior que o ano passado");
+pulaLinha();
+}
+
+
+
+	
+
+</script>
+
+
