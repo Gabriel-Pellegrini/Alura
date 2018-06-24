@@ -11,3 +11,7 @@ COPY . $HOME/portal
 RUN npm install npm
 
 RUN npm install -g nodemon
+
+RUN npm install express 
+
+
