@@ -4,8 +4,10 @@ services:
   node:
     build:
       context: .
-      dockerfile: dockerfile
-    #command: node_modules/.bin/nodemon --exec npm start
+      dockerfile: Dockerfile
+    image: gabrielpellegrini/nodejs:8.11.2
+    command: nodemon app.js
+    
     tty: true
     stdin_open: true
     container_name: node

@@ -14,7 +14,7 @@ app.get("/formulario_inclusao_noticia",function(req,res){
 });
 
 app.get("/tecnologia",function(req,res){
-	res.render ("session/tecnologia")
+	res.render ("session/tecnologias")
 });
 
 
