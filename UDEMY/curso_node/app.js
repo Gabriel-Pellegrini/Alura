@@ -14,10 +14,12 @@ app.get("/formulario_inclusao_noticia",function(req,res){
 });
 
 app.get("/tecnologia",function(req,res){
-	res.render ("session/tecnologias")
+	res.render ("session/tecnologia")
 });
 
 
 app.listen(port,function(){
 	console.log('express app listening on ' + port + ' (3050 on Host)')
 });
+
+
