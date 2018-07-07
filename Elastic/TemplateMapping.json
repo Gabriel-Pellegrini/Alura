@@ -15,7 +15,7 @@
 
 PUT _template/catalogo
 {
-  "template":"catalogo",
+  "index_patterns":"catalogo",
   "settings": {
     "index": {
       "number_of_shards": 3,
@@ -24,10 +24,6 @@ PUT _template/catalogo
   },
   "mappings": {
     "pessoas": {
-      "_all": {
-        "type": "text",
-        "analyzer": "brazilian"
-      },
       "properties": {
         "cidade": {
           "type": "text",
@@ -61,13 +57,13 @@ PUT _template/catalogo
 }
 
 //---------------------------// TEMPLATE SINONIMO// --------------------------
-PUT _template/catalogo_sinonimo
+PUT _template / catalogo_sinonimo 
 {
-  "template":"catalogo_sinonimo",
-  "settings":{
-    "index":{
-      "number_of_shards":3,
-      "number_of_replicas":0
+  "index_patterns": "catalogo_sinonimo",
+  "settings": {
+    "index": {
+      "number_of_shards": 3,
+      "number_of_replicas": 0
     },
     "analysis": {
       "filter": {
@@ -78,18 +74,190 @@ PUT _template/catalogo_sinonimo
           ]
         }
       },
-      "analyzer":{
-        "sinonimos":{
-          "tokenizer":"standard",
-          "type":"custom",
-          "filter":[
+      "analyzer": {
+        "sinonimos": {
+          "tokenizer": "standard",
+          "type": "custom",
+          "filter": [
             "lowercase",
             "filtro_de_sinonimos"
           ]
         }
       }
     }
+  },
+  "mappings": {
+    "pessoas": {
+      "properties": {
+        "cidade": {
+          "type": "text",
+          "analyzer": "brazilian"
+        },
+        "estado": {
+          "type": "text"
+        },
+        "formação": {
+          "type": "text",
+          "analyzer": "brazilian"
+        },
+        "interesses": {
+          "type": "text",
+          "analyzer": "sinonimos"
+        },
+        "nome": {
+          "type": "text",
+          "analyzer": "brazilian"
+        },
+        "país": {
+          "type": "text",
+          "analyzer": "brazilian"
+        },
+        "nascimento": {
+          "type": "date"
+        }
+      }
+    }
   }
 }
-  
-  
+//---------------------------// TEMPLATE SINONIMO// --------------------------
+PUT _template/catalogo_sinonimo_2 
+{
+  "index_patterns": "catalogo_sinonimo_2",
+  "settings": {
+    "index": {
+      "number_of_shards": 3,
+      "number_of_replicas": 0
+    },
+    "analysis": {
+      "filter": {
+        "filtro_de_sinonimos": {
+          "type": "synonym",
+          "synonyms": [
+            "futebol => futebol,society",
+            "society => society,futebol",
+            "esporte => esporte,futebol,society,volei,basquete"
+          ]
+        }
+      },
+      "analyzer": {
+        "sinonimos": {
+          "tokenizer": "standard",
+          "type": "custom",
+          "filter": [
+            "lowercase",
+            "filtro_de_sinonimos"
+          ]
+        }
+      }
+    }
+  },
+  "mappings": {
+    "pessoas": {
+      "properties": {
+        "cidade": {
+          "type": "text",
+          "analyzer": "brazilian"
+        },
+        "estado": {
+          "type": "text"
+        },
+        "formação": {
+          "type": "text",
+          "analyzer": "brazilian"
+        },
+        "interesses": {
+          "type": "text",
+          "analyzer": "sinonimos"
+        },
+        "nome": {
+          "type": "text",
+          "analyzer": "brazilian"
+        },
+        "país": {
+          "type": "text",
+          "analyzer": "brazilian"
+        },
+        "nascimento": {
+          "type": "date"
+        }
+      }
+    }
+  }
+}
+----------------------------- // Usando Search Analyse -------------------
+PUT _template/catalogo_v3
+{
+  "index_patterns": "catalogo_v3",
+  "settings": {
+    "index": {
+      "number_of_shards": 3,
+      "number_of_replicas": 0
+    },
+    "analysis": {
+      "filter": {
+        "portuguese_stop": {
+          "type": "stop",
+          "stopwords": "_portuguese_"
+        },
+        "portuguese_stemmer": {
+          "type": "stemmer",
+          "language": "light_portuguese"
+        },
+        "filtro_de_sinonimos": {
+          "type": "synonym",
+          "synonyms": [
+            "futebol => futebol,society",
+            "society => society,futebol",
+            "volei,voleibol,volleyball",
+            "esport => esport,futebol,society,volei,basquet",
+            "exat => exat,matematic,fisic,computaca",
+            "arte => arte,pintur,teatr,music,cinem"
+          ]
+        }
+      },
+      "analyzer": {
+        "sinonimos": {
+          "tokenizer": "standard",
+          "filter": [
+            "lowercase",
+            "portuguese_stop",
+            "portuguese_stemmer",
+            "filtro_de_sinonimos"
+          ]
+        }
+      }
+    }
+  },
+  "mappings": {
+    "pessoas": {
+      "properties": {
+        "cidade": {
+          "type": "text",
+          "analyzer": "brazilian"
+        },
+        "estado": {
+          "type": "text"
+        },
+        "formação": {
+          "type": "text",
+          "analyzer": "brazilian"
+        },
+        "interesses": {
+          "type": "text",
+          "analyzer": "sinonimos"
+        },
+        "nome": {
+          "type": "text",
+          "analyzer": "brazilian"
+        },
+        "país": {
+          "type": "text",
+          "analyzer": "brazilian"
+        },
+        "nascimento": {
+          "type": "date"
+        }
+      }
+    }
+  }
+}

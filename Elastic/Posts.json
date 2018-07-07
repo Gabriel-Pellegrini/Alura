@@ -91,6 +91,32 @@ PUT /catalogo/pessoas/8
     "nascimento":"1996-08-01"
 }
 
+--------------------------------------------------//POSTS BY BULK INSERTION --------------------------------------
+POST /catalogo_v3/pessoas/_bulk
+
+{"index":{"_id":1}}
+{"nome": "Gabriel Pellegrini","interesses": ["computação", "esportes", "games"],"cidade": "São Paulo","formação": "Ciência da Computação","estado": "SP","país": "Brasil","nascimento": "1996-11-30"}
+{ "index": { "_id": 2 }}
+{"nome": "Eric Pellegrini","interesses": ["youtube", "esporte", "teatro"],"cidade": "São Paulo","formação": "Fundamental 2","estado": "SP","país": "Brasil","nascimento": "2005-02-14"}
+{ "index": { "_id": 3 }}
+{"nome": "Richard Edward","interesses": ["matemática", "física", "música"],"cidade": "Boston","formação": "Física","estado": "MA","país": "Estados Unidos","nascimento": "1980-04-20"}
+{ "index": { "_id": 4 }}
+{"nome": "Patrick von Steppat","interesses": ["computação", "culinária", "cinema"],"cidade": "Rio de Janeiro","formação": "Gastronomia","estado": "RJ","país": "Brasil","nascimento": "1990-08-16"}
+{ "index": { "_id": 5 }}
+{"nome": "Gustavo Fernandes","interesses": ["society", "física", "música"],"cidade": "São Paulo","formação": "Engenharia de Automação","estado": "SP","país": "Brasil","nascimento": "1996-11-15"}
+{ "index": { "_id": 6 }}
+{"nome": "Marcelo Nascimento","interesses": ["basquete", "direito", "games"],"cidade": "São Paulo","formação": "Direito","estado": "SP","país": "Brasil","nascimento": "1996-04-01"}
+{ "index": { "_id": 7 }}
+{"nome": "Beatriz Lopes","interesses": ["religião", "turismo", "pintura"],"cidade": "São Paulo","formação": "Turismo","estado": "SP","país": "Brasil","nascimento": "1996-05-27"}
+{ "index": { "_id": 8 }}
+{"nome": "Mylena Lopes","interesses": ["cinema", "volei", "animais"],"cidade": "São Paulo","formação": "Medicina Veterinária","estado": "SP","país": "Brasil","nascimento": "1996-08-01"}
+{ "index": { "_id": 9 }}
+{"nome": "Rivaldo Silva","interesses": ["Esportes", "Futebol", "Cerveja"],"cidade": "São Paulo","formação": "Contabilidade","estado": "SP","país": "Brasil","nascimento": "1996-10-10"}
+{ "index": { "_id": 10 }}
+{"nome": "Ricardo Pellegrini","interesses": ["Futeba", "Cinema", "Churrasco"],"cidade": "São Paulo","formação": "Contabilidade","estado": "SP","país": "Brasil","nascimento": "1996-07-08"}
+
+
+
 
 --------------------------------------------------// INDICANDO NÚMEROS DE REPLICAS DO INDEX // --------------------
 PUT /catalogo/_settings
