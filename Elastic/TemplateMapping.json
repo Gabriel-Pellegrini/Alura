@@ -184,7 +184,7 @@ PUT _template/catalogo_sinonimo_2
     }
   }
 }
------------------------------ // Usando Search Analyse -------------------
+----------------------------- // Usando Search Analyse - com Keyword -------------------
 PUT _template/catalogo_v3
 {
   "index_patterns": "catalogo_v3",
@@ -233,26 +233,56 @@ PUT _template/catalogo_v3
       "properties": {
         "cidade": {
           "type": "text",
-          "analyzer": "brazilian"
+          "analyzer": "brazilian",
+          "fields": {
+            "keyword":{
+              "type":"keyword"    
+            } 
+          }
         },
         "estado": {
-          "type": "text"
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword"
+            }
+          }
         },
         "formação": {
           "type": "text",
-          "analyzer": "brazilian"
+          "analyzer": "brazilian",
+          "fields": {
+            "keyword": {
+              "type": "keyword"
+            }
+          }
         },
         "interesses": {
           "type": "text",
-          "analyzer": "sinonimos"
+          "analyzer": "sinonimos",
+          "fields": {
+            "keyword": {
+              "type": "keyword"
+            }
+          }
         },
         "nome": {
           "type": "text",
-          "analyzer": "brazilian"
+          "analyzer": "brazilian",
+          "fields": {
+            "keyword": {
+              "type": "keyword"
+            }
+          }
         },
         "país": {
           "type": "text",
-          "analyzer": "brazilian"
+          "analyzer": "brazilian",
+          "fields": {
+            "keyword": {
+              "type": "keyword"
+            }
+          }
         },
         "nascimento": {
           "type": "date"
