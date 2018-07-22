@@ -9,7 +9,17 @@ module.exports = function () {
 
 // Exportando o módulo do express através de uma variável
 var express = require('express');
+var consign = require("consign");
+
 var app = express();
 app.set("view engine", "ejs");
 app.set('views', './app/views');
+
+//Adding data into the application
+consign()
+    .include("./app/routes")
+    .then("./config/connectionFactory.js")
+    .into(app)
+
+
 module.exports = app;

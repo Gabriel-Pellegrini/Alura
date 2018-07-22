@@ -6,7 +6,6 @@ module.exports = function () {
 };
 
 var connMySQL = function () {
-
     console.log(' Connection with Database was estabilished')
     return mysql.createConnection({
         host: 'localhost',

@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
 <head>
-  
+
 </head>
 
 
@@ -11,11 +11,27 @@
         <tr>
             <td>id</td>
             <td>nome</td>
+            <td>descrição</td>
+            <td>preço</td>
         </tr>
-        <tr>
-            <td>1</td>
-            <td>livro de node js</td>
-        </tr>
+            <%for(var i=0;i<lista.length;i++) {%>
+                <tr>
+                    <td>
+                        <%=lista[i].id%>
+                    </td>
+                    <td>
+                        <%=lista[i].titulo%>
+                    </td>
+                    <td>
+                        <%=lista[i].descricao%>
+                    </td>
+                    <td>
+                        <%=lista[i].preco%>
+                    </td>
+                </tr>
+                <%}%>
+
+
     </table>
 </body>
 
