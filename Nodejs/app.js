@@ -1,9 +1,7 @@
 var app = require("./config/server");//Caso exponha o módulo através de uma função/* () */;
 var port = 3000;
 
-app.get("/",function (req,res) {
-    res.render("produtos/lista")    
-});
+var productList = require("./app/routes/product")(app);
 
 
 app.listen(port, function () {
