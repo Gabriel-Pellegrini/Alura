@@ -18,6 +18,7 @@ app.set('views', './app/views');
 //Adding data into the application
 consign()
     .include("./app/routes")
+    .then ("./app/models")
     .then("./config/connectionFactory.js")
     .into(app)
 
