@@ -2,25 +2,34 @@
 
 
 <script>
-	function pulaLinha() {
-		document.write("<br>");
-	}
-
-	function show(imprime) {
-		document.write(imprime);
-	};
-
-    var numPensado = 5;
-
-    var chute = parseInt(prompt("Digite seu chute!"));
-
-    if (chute == numPensado){
-        show("Você Acertou!");
-    } 
-    else{
-        show("Você errou, o número pensado foi " + numPensado);
+    function pulaLinha() {
+        document.write("<br>");
     }
 
+    function show(imprime) {
+        document.write(imprime);
+    };
 
-	pulaLinha();
+    function randomNum(limite) {
+        var limite
+        return limite
+    }
+
+    var limiteRange = parseInt(prompt("Digite o valor limite para ser sorteado"));
+    var range = randomNum(limiteRange);
+    var chute = parseInt(prompt("Digite seu chute! entre 0 e " + range));
+    var numPensado = Math.round(Math.random() * range);
+
+    while (chute > range) {
+        chute = parseInt(prompt("Número inválido, digite seu chute! entre 0 e " + range));
+    } 
+    if (chute == numPensado) {
+        show("Você acertou, o número pensado foi " + chute)
+    } else if (chute < numPensado) {
+        show("Quase lá o número a ser advinhado é maior que " + chute + " eu havia pensado em " + numPensado);
+    } else {
+        show("Quase lá o número a ser advinhado é menor que " + chute + " eu havia pensado em " + numPensado);
+    }
+
+    pulaLinha();
 </script>
