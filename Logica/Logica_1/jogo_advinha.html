@@ -17,18 +17,33 @@
 
     var limiteRange = parseInt(prompt("Digite o valor limite para ser sorteado"));
     var range = randomNum(limiteRange);
-    var chute = parseInt(prompt("Digite seu chute! entre 0 e " + range));
     var numPensado = Math.round(Math.random() * range);
+    var tentativa = 1;
+    var chute = range + 1;
 
     while (chute > range) {
-        chute = parseInt(prompt("Número inválido, digite seu chute! entre 0 e " + range));
-    } 
-    if (chute == numPensado) {
-        show("Você acertou, o número pensado foi " + chute)
-    } else if (chute < numPensado) {
-        show("Quase lá o número a ser advinhado é maior que " + chute + " eu havia pensado em " + numPensado);
+        chute = parseInt(prompt("Digite seu chute! entre 0 e " + range));
+    }
+
+    while (tentativa < 3) {
+        if (chute == numPensado) {
+            break;
+        } else if (chute < numPensado) {
+            chute = parseInt(prompt("Quase lá o número a ser advinhado é maior que " + chute +
+                " Tente novamete, Digite seu chute! entre 0 e " + range));
+        } else {
+            chute = parseInt(prompt("Quase lá o número a ser advinhado é menor que " + chute +
+                " Tente novamete, Digite seu chute! entre 0 e " + range));
+        }
+        tentativa++;
+    }
+
+    if (chute != numPensado) {
+        show("Chances esgotadas o número era " + numPensado);
     } else {
-        show("Quase lá o número a ser advinhado é menor que " + chute + " eu havia pensado em " + numPensado);
+        show("Você acertou, o número pensado foi " + chute);
+        pulaLinha();
+        show("Fim");
     }
 
     pulaLinha();

@@ -1,0 +1,27 @@
+<meta charset="UTF-8">
+<script>
+    function pulaLinha() {
+        document.write("<br>");
+    }
+
+    function show(imprime) {
+        document.write(imprime);
+    };
+
+    var familia = parseInt(prompt("Quantos Familiares você tem ?"));
+    var mediaIdade=0;
+
+    for (var i = 0; i < familia; i++) {
+
+        var nome =[familia];
+        var idade =[familia];
+        nome[i]=prompt("Nome do familiar");
+        idade[i]=parseInt(prompt("Idade do familiar"));
+        show(nome[i] + " tem " + idade[i] + " anos! ");
+        pulaLinha();
+        mediaIdade += idade[i];    
+    }
+
+        show("A idade média em sua família é "+mediaIdade/familia+" anos!");
+
+</script>
