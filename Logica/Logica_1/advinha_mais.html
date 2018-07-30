@@ -1,0 +1,64 @@
+<meta charset="UTF-8">
+
+
+
+<input/>
+
+<button>submit a number between 1 and 10</button>
+<script>
+    function random() {
+        return Math.round(Math.random() * 10);
+    }
+
+    function drawNumber(quantity) {
+        console.log(quantity)
+        const secretKey = [];
+        let number = 1;
+        while (number <= quantity) {
+
+            var randomNumbers = random();
+            var achou = false;
+            if (randomNumbers != 0) {
+                for (let i = 0; i < secretKey.length; i++) {
+                    if (secretKey[i] == randomNumbers) {
+                        achou = true;
+                        break;
+                    }
+
+                }
+                if (achou == false) {
+                    secretKey.push(randomNumbers);
+                    number++;
+                }
+                console.log(secretKey)
+
+            }
+        }
+        return secretKey;
+    }
+
+    var secretKey = drawNumber(3)
+    var chute = document.querySelector("input");
+
+    function check() {
+        let achou = false;
+        for (let i = 0; i < secretKey.length; i++) {
+
+            if (chute.value == secretKey[i]) {
+                alert("você acertou");
+                achou = true;
+                break;
+            }
+        }
+
+        if (achou != true) {
+            alert("você Errou");
+        }
+
+        chute.value = "";
+        chute.focus();
+    }
+
+    var button = document.querySelector("button");
+    button.onclick = check;
+</script>
