@@ -1,0 +1,27 @@
+<meta charset="UTF-8">
+
+
+<script>
+    function pulaLinha() {
+        document.write("<br>");
+    }
+
+    function show(imprime) {
+        document.write(imprime);
+    };
+
+    var anoCopa = 1930;
+    var anoLimite = parseInt(prompt("Digite o ano limite"));
+
+    while (anoCopa < anoLimite) {
+        anoCopa += 4;
+        show("Em " + anoCopa + " é copa do mundo!");
+        pulaLinha();
+    }
+    show("Fim do Programa");
+
+
+
+
+    pulaLinha();
+</script>

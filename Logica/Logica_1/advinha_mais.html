@@ -1,0 +1,65 @@
+<meta charset="UTF-8">
+<input/>
+
+<button>submit a number</button>
+<script>
+    function random() {
+        return Math.round(Math.random() * range);
+    }
+
+    function drawNumber(quantity) {
+        console.log(quantity)
+        const secretKey = [];
+        let number = 1;
+        while (number <= quantity) {
+
+            var randomNumbers = random();
+            var achou = false;
+            if (randomNumbers != 0) {
+                for (let i = 0; i < secretKey.length; i++) {
+                    if (secretKey[i] == randomNumbers) {
+                        achou = true;
+                        break;
+                    }
+
+                }
+                if (achou == false) {
+                    secretKey.push(randomNumbers);
+                    number++;
+                }
+                console.log(secretKey)
+
+            }
+        }
+        return secretKey;
+    }
+
+    var range = parseInt(prompt("Quantidade máxima de números sorteados?"));
+    var numOfSecrets = parseInt(prompt("Quantidade máxima de senhas possíveis?"));
+    var secretKey = drawNumber(numOfSecrets);
+    var chute = document.querySelector("input");
+    var trial = 1;
+
+
+    function check() {
+        let achou = false;
+
+        for (let i = 0; i < secretKey.length; i++) {
+            if (chute.value == secretKey[i]) {
+                alert("você acertou uma das senhas é " + secretKey[i]);
+                achou = true;
+                break;
+            }
+        }
+        if (achou != true) {
+            alert("você Errou");
+        }
+        //alert("FIM")
+        chute.value = "";
+        chute.focus();
+    }
+
+    var button = document.querySelector("button");
+
+    button.onclick = check;
+</script>
