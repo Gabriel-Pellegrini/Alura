@@ -1,13 +1,10 @@
 <meta charset="UTF-8">
-
-
-
 <input/>
 
-<button>submit a number between 1 and 10</button>
+<button>submit a number</button>
 <script>
     function random() {
-        return Math.round(Math.random() * 10);
+        return Math.round(Math.random() * range);
     }
 
     function drawNumber(quantity) {
@@ -37,28 +34,32 @@
         return secretKey;
     }
 
-    var secretKey = drawNumber(3)
+    var range = parseInt(prompt("Quantidade máxima de números sorteados?"));
+    var numOfSecrets = parseInt(prompt("Quantidade máxima de senhas possíveis?"));
+    var secretKey = drawNumber(numOfSecrets);
     var chute = document.querySelector("input");
+    var trial = 1;
+
 
     function check() {
         let achou = false;
-        for (let i = 0; i < secretKey.length; i++) {
 
+        for (let i = 0; i < secretKey.length; i++) {
             if (chute.value == secretKey[i]) {
-                alert("você acertou");
+                alert("você acertou uma das senhas é " + secretKey[i]);
                 achou = true;
                 break;
             }
         }
-
         if (achou != true) {
             alert("você Errou");
         }
-
+        //alert("FIM")
         chute.value = "";
         chute.focus();
     }
 
     var button = document.querySelector("button");
+
     button.onclick = check;
 </script>
