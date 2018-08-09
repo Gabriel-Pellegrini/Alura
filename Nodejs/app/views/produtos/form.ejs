@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Formulário de cadastro de livro</title>
+</head>
+
+<body>
+
+    <div>
+
+        <h1>Adicionar livro</h1>
+
+        <br />
+
+        <form action="/product/save" method="post">
+            <label for="titulo">Título</label>
+            <input type="text" name="livro" placeholder="coloque o título"  />
+            <br />
+            <label for="preco">Preço</label>
+            <input type="text" name="preco" placeholder="19.90 "  />
+            <br />
+            <label for="descricao">Descição</label>
+            <textarea id="descricao" name="descricao" rows="5" cols="30"></textarea>
+
+            <input type="submit" value="gravar"/>
+        </form>
+    </div>
+
+</body>
+
+</html>

@@ -1,4 +1,4 @@
-var app = require("./config/server");//Caso exponha o módulo através de uma função/* () */;
+var app = require("./config/server"); //Caso exponha o módulo através de uma função/* () */;
 var port = 3000;
 
 

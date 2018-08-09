@@ -1,9 +1,23 @@
-
 // Exportando o módulo do express através de uma função
 /* var express = require('express');
-var app = express();
+var consign = require("consign");
+
 module.exports = function () {
+    var app = express();
+
     app.set("view engine", "ejs");
+    app.set('views', './app/views');
+
+    app.use(express.urlencoded({extended: true}));
+
+
+    //Adding data into the application
+    consign()
+        .include("./app/routes")
+        .then("./app/models")
+        .then("./config/connectionFactory.js")
+        .into(app)
+
     return app;
 } */
 
@@ -15,10 +29,14 @@ var app = express();
 app.set("view engine", "ejs");
 app.set('views', './app/views');
 
+app.use(express.urlencoded({extended: true}));
+
+
+
 //Adding data into the application
 consign()
     .include("./app/routes")
-    .then ("./app/models")
+    .then("./app/models")
     .then("./config/connectionFactory.js")
     .into(app)
 

@@ -1,10 +1,10 @@
 module.exports = function (application) {
-    application.get("/", function (req, res) {
+    application.get("/products", function (req, res) {
 
         var connection = application.config.connectionFactory();
-        var productsBanco = new application.app.models.ProductsDAO(connection);
+        var productsDAO = new application.app.models.ProductsDAO(connection);
 
-        productsBanco.lista(function (err, results) {
+        productsDAO.lista(function (err, results) {
 
             res.render("produtos/lista", {
                 lista: results
@@ -12,4 +12,22 @@ module.exports = function (application) {
         });
         connection.end();
     });
+
+    application.get("/products/form", function (req, res) {
+
+        res.render("./produtos/form")
+
+    })
+
+    application.post("/product/save", function (req, res) {
+
+        var produto = req.body;
+        // res.send(produto);
+        var connection = application.config.connectionFactory();
+        var productsDAO = new application.app.models.ProductsDAO(connection);
+        productsDAO.salva(produto,function (err,results) {
+            res.render("produtos/lista");    
+        })
+
+    })
 }
