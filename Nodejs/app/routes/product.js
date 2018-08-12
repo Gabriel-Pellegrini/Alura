@@ -16,7 +16,6 @@ module.exports = function (application) {
     application.get("/products/form", function (req, res) {
 
         res.render("./produtos/form")
-
     })
 
     application.post("/product/save", function (req, res) {
@@ -25,9 +24,10 @@ module.exports = function (application) {
         // res.send(produto);
         var connection = application.config.connectionFactory();
         var productsDAO = new application.app.models.ProductsDAO(connection);
-        productsDAO.salva(produto,function (err,results) {
-            res.render("produtos/lista");    
-        })
 
-    })
+        productsDAO.salva(produto, function (err, results) {
+            res.redirect(301, "/products");
+        });
+        connection.end();
+    });
 }
