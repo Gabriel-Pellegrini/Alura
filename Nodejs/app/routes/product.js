@@ -1,4 +1,6 @@
 module.exports = function (application) {
+    
+    
     application.get("/products", function (req, res) {
 
         var connection = application.config.connectionFactory();
@@ -18,7 +20,7 @@ module.exports = function (application) {
         res.render("./produtos/form")
     })
 
-    application.post("/product/save", function (req, res) {
+    application.post("/products", function (req, res) {
 
         var produto = req.body;
         // res.send(produto);
