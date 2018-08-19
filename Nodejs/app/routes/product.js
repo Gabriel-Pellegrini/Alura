@@ -1,6 +1,6 @@
 module.exports = function (application) {
-    
-    
+
+
     application.get("/products", function (req, res) {
 
         var connection = application.config.connectionFactory();
@@ -8,9 +8,16 @@ module.exports = function (application) {
 
         productsDAO.lista(function (err, results) {
 
-            res.render("produtos/lista", {
-                lista: results
-            });
+            res.format({
+                html: function () {
+                    res.render("produtos/lista", {
+                        lista: results
+                    });
+                },
+                json: function () {
+                    res.json(results);
+                }
+            })
         });
         connection.end();
     });
@@ -23,12 +30,15 @@ module.exports = function (application) {
     application.post("/products", function (req, res) {
 
         var produto = req.body;
+        // console.log(produto)
         // res.send(produto);
         var connection = application.config.connectionFactory();
         var productsDAO = new application.app.models.ProductsDAO(connection);
 
         productsDAO.salva(produto, function (err, results) {
+            // console.log(err)
             res.redirect(301, "/products");
+
         });
         connection.end();
     });
