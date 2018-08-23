@@ -24,6 +24,7 @@ module.exports = function () {
 // Exportando o módulo do express através de uma variável
 var express = require('express');
 var consign = require("consign");
+var expressValidator = require("express-validator");
 
 var app = express();
 app.set("view engine", "ejs");
@@ -31,6 +32,7 @@ app.set('views', './app/views');
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json())
+app.use(expressValidator());
 
 
 //Adding data into the application

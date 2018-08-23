@@ -30,6 +30,17 @@ module.exports = function (application) {
     application.post("/products", function (req, res) {
 
         var produto = req.body;
+
+        let validator = req.assert('titulo','Título precisa ser preenchido.');
+        validator.notEmpty();
+
+        let error = req.validationErrors();
+
+        if(error){
+            res.render('./produtos/form')
+            return
+        }
+
         // console.log(produto)
         // res.send(produto);
         var connection = application.config.connectionFactory();
